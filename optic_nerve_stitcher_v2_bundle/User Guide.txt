@@ -1,0 +1,66 @@
+AxoStitch – Quick User Guide
+
+1. Open PowerShell.
+
+2. Change directory to the folder containing the stitching program.
+
+Example:
+
+cd "C:\Users\djord\Documents\Coding\Optic Nerve Tiling\optic_nerve_stitcher_v2_bundle"
+
+
+3. Create a Python virtual environment.
+
+This keeps the packages used by the project separate from the rest of your Python installation.
+
+python -m venv .venv
+
+
+4. Activate the virtual environment.
+
+.venv\Scripts\Activate.ps1
+
+After activation, you should see something like:
+
+(.venv) PS C:\Users\...
+
+
+5. Install the project dependencies.
+
+pip install -r requirements_stitching_v2.txt
+
+You normally only need to do this once after creating the environment.
+
+
+6. Run the stitching program.
+
+Change the image folder, SID, and output folder to match the sample you are processing.
+
+Example:
+
+python stitch_optic_nerve_v3.py "D:\DCIM\Sectioning\2003 OS\100x all.zip" `
+    --sid "2003 OS" `
+    --output-dir "C:\Users\user\Documents\Coding\Optic Nerve Tiling\outputs" `
+    --axon-scale 0.542 `
+    --allow-small-disconnected
+
+The backtick (`) at the end of each line tells PowerShell that the command continues onto the next line.
+
+You can also enter the whole command on one line.
+
+
+7. Check the output.
+
+The stitched images and QC files will be saved in the folder specified by:
+
+--output-dir
+
+For the example above:
+
+C:\Users\djord\Documents\Coding\Optic Nerve Tiling\outputs
+
+
+Important:
+Always inspect the preview image before using the stitched image for AxoNet or other software used for counting axons.
+
+The program should report that nearly all 100x tiles are connected. If several tiles are disconnected or the program stops with a registration error, do not use that mosaic until the issue is checked.
