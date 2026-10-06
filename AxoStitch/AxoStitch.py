@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-stitch_optic_nerve_v3.py
+AxoStitch.py
 
 Translation-only stitcher for overlapping 100x optic-nerve TIFF fields.
 
